@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -19,5 +21,14 @@ public class Client implements Serializable {
     private int id;
     private String name;
     private Date dateOfBirth;
-    private String nnnn;
+    private String metier;
+
+    @ManyToOne
+    private Agence agence;
+
+    @OneToMany(mappedBy = "client")
+    private List<Compte> comptes;
+
+    @OneToMany(mappedBy = "client")
+    private List<Credit> Credits;
 }

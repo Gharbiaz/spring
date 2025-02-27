@@ -25,4 +25,8 @@ public class Credit implements Serializable {
     private TypeC type;
     private Date dateDebut;
     private Date dateFin;
+
+
+    @ManyToOne
+    private Client client;
 }

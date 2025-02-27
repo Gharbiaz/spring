@@ -1,9 +1,6 @@
 package tn.sesame.secproject.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +8,8 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -22,4 +21,12 @@ public class Admin implements Serializable {
     private int id;
     private String name;
     private Date dateEmbouche;
+
+    @ManyToMany
+    @JoinTable(
+            name = "admin_agence",
+            joinColumns = @JoinColumn(name = "admin_id"),
+            inverseJoinColumns = @JoinColumn(name = "agence_id")
+    )
+    private List<Agence> agences;
 }

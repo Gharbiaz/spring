@@ -20,5 +20,8 @@ public class Compte implements Serializable {
     private Date dateOfcreation;
     @Enumerated(EnumType.STRING)
     private TypeCompte typeCompte;
+
+    @ManyToOne
+    private Client client;
 }
 
