@@ -30,5 +30,5 @@ public class Client implements Serializable {
     private List<Compte> comptes;
 
     @OneToMany(mappedBy = "client")
-    private List<Credit> Credits;
+    private List<DemandeCredit> Credits;
 }
