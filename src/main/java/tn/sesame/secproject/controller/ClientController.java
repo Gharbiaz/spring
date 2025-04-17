@@ -14,6 +14,8 @@ public class ClientController {
     @Autowired
     IClientServices clientServices;
 
+
+
     @GetMapping
     public List<Client> getClients() {
         return clientServices.getClients();
@@ -38,5 +40,11 @@ public class ClientController {
     @DeleteMapping("/deleteClient/{id}")
     public void deleteClient(@PathVariable int id) {
         clientServices.deleteClient(id);
+    }
+
+
+    @PostMapping("/affecter/{idAgence}")
+    public Client affecterClientAAgence(@RequestBody Client client, @PathVariable int idAgence) {
+        return clientServices.affecterClientAgence(client, idAgence);
     }
 }
