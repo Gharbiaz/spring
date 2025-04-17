@@ -17,5 +17,8 @@ public interface IClientServices {
     Client affecterClientAgence(Client c, int idAgence);
 
 
+        Client ajouterAffecterClientCompte(Client c);
+
+
 
 }

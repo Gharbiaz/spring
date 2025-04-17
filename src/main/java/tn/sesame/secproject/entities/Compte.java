@@ -21,7 +21,7 @@ public class Compte implements Serializable {
     @Enumerated(EnumType.STRING)
     private TypeCompte typeCompte;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Client client;
 }
 

@@ -47,4 +47,9 @@ public class ClientController {
     public Client affecterClientAAgence(@RequestBody Client client, @PathVariable int idAgence) {
         return clientServices.affecterClientAgence(client, idAgence);
     }
+
+    @PostMapping("/ajouter-affecter-compte")
+    public Client ajouterAffecterClientCompte(@RequestBody Client client) {
+        return clientServices.ajouterAffecterClientCompte(client);
+    }
 }

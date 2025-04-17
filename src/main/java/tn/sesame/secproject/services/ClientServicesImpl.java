@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.sesame.secproject.entities.Client;
 import tn.sesame.secproject.entities.Agence;
+import tn.sesame.secproject.entities.Compte;
 import tn.sesame.secproject.repository.IAgenceRepository;
 import tn.sesame.secproject.repository.IClientRepository;
 import tn.sesame.secproject.repository.ICompteRepository;
@@ -53,5 +54,16 @@ public class ClientServicesImpl implements IClientServices {
 
         c.setAgence(agence);
         return clientRepository.save(c);
+    }
+
+    @Override
+    public Client ajouterAffecterClientCompte(Client c) {
+        if (c.getComptes() != null) {
+            for (Compte compte : c.getComptes()) {
+                compte.setClient(c);
+                compteRepository.save(compte);
+            }
+        }
+        return c;
     }
 }
