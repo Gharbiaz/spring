@@ -19,7 +19,7 @@ public class Banque  implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    private String siège;
+    private String siege;
 
     @OneToMany(mappedBy = "banque")
     private List<Agence> agences;

@@ -6,4 +6,5 @@ import tn.sesame.secproject.entities.Directeur;
 
 @Repository
 public interface IDirecteurRepository extends CrudRepository<Directeur, Integer> {
+    Directeur findByAgenceNom(String nom);
 }
